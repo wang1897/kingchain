@@ -385,13 +385,12 @@ class CPoaParams : public CChainParams
 public:
 	CPoaParams()
     {
-//        strNetworkID = gArgs.GetArg("-chain", "");
-        strNetworkID = "perfect";
+        strNetworkID = gArgs.GetArg("-chain", "");
         assert(strNetworkID.size() != 0);
 //        consensus.nSubsidyInit = atoi(gArgs.GetArg("-subsidy-init", "0"));
         consensus.nSubsidyHalvingInterval = atoi(gArgs.GetArg("-subsidy-halving-interval", "0"));
         consensus.nSubsidyHalvingTime = atoi(gArgs.GetArg("-subsidy-halving-time", "7"));
-        consensus.nSubsidyInit = atoi("30");
+        consensus.nSubsidyInit = atoi("50");
 //        consensus.nSubsidyHalvingInterval = 100;
 //        consensus.nSubsidyHalvingTime = 7;
         consensus.BIP34Height = 0;
@@ -450,7 +449,7 @@ public:
         	vSeeds.emplace_back(host, false);
         }
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,45);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,58);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,50);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,128);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
